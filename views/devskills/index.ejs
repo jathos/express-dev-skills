@@ -10,10 +10,14 @@
 </head>
 
 <body>
-    <h1>My Dev Skills</h1>
+    <h1>My Dev Skills as of <%= time %>
+    </h1>
     <ul>
         <% devSkills.forEach(function(ele) { %>
             <li>
+                <form action="/devskills/<%= ele.id %>?_method=DELETE" class="delete-form" method="POST">
+                    <button type="submit">X</button>
+                </form>
                 <a href="/devSkills/<%= ele.id %>">
                     <%= ele.skill %>
                 </a>
@@ -23,6 +27,7 @@
             </li>
             <% }); %>
     </ul>
+    <a href="/devskills/new">Add Dev Skill</a>
 </body>
 
 </html>
